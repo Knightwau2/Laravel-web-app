@@ -1,25 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Models\Job;
+use App\Http\Controllers\JobController;
 
+// Home route
 Route::get('/', function () {
     return view('home');
 });
 
-Route::get('/jobs', function () {
-    return view('jobs', [
-        'jobs' => Job::all()
-    ]);
-});
+// Job routes (now using controller)
+Route::resource('jobs', JobController::class);
 
-Route::get('/jobs/{id}', function ($id) {
-    $job = Job::find($id);
-
-    return view('job', ['job' => $job]);
-});
-
+// Contact route
 Route::get('/contact', function () {
     return view('contact');
 });
-
