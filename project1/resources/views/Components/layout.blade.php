@@ -9,6 +9,15 @@
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 
+<script> //javascript job delete confirmation
+    function confirmDelete(e) {
+        e.preventDefault();
+        if (confirm('Are you sure you want to delete this job?')) {
+            e.target.closest('form').submit();
+        }
+    }
+</script>
+
 <body class="h-full">
 
 <div class="min-h-full">
